@@ -3,53 +3,84 @@ import ReactDOM from 'react-dom';
 import './style/index.css';
 import './style/main.less';
 
-class Square extends React.Component {
-  render() {
-    return <button className="square">{/* TODO */}</button>;
-  }
+function Key(props) {
+  return (
+    <button className={props.classNames.join(' ')} onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
 }
 
-class Board extends React.Component {
-  renderSquare(i) {
-    return <Square />;
+class CalculatorInput extends React.Component {
+  renderKey(i, ...classNames) {
+    classNames = classNames.concat(['key']);
+    return <Key value={i} classNames={classNames}></Key>;
   }
 
   render() {
-    const status = 'Next player: X';
-
     return (
       <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
+        <div className="input-row">
+          {this.renderKey(7)}
+          {this.renderKey(8)}
+          {this.renderKey(9)}
+          {this.renderKey('/', 'special')}
         </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
+        <div className="input-row">
+          {this.renderKey(4)}
+          {this.renderKey(5)}
+          {this.renderKey(6)}
+          {this.renderKey('x', 'special')}
         </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
+        <div className="input-row">
+          {this.renderKey(1)}
+          {this.renderKey(2)}
+          {this.renderKey(3)}
+          {this.renderKey('-', 'special')}
+        </div>
+        <div className="input-row">
+          {this.renderKey('0')}
+          {this.renderKey('.')}
+          {this.renderKey('=', 'equals')}
+          {this.renderKey('+', 'special')}
         </div>
       </div>
     );
   }
 }
 
-class Game extends React.Component {
+function OutputLine(props) {
+  return <div className="outputLine">{props.value}</div>;
+}
+
+class CalculatorScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lines: ['1+1 = 2', '2+1*3 = 5'],
+    };
+  }
+
   render() {
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board />
+      <div>
+        {this.state.lines.map(line => (
+          <OutputLine value={line} />
+        ))}
+      </div>
+    );
+  }
+}
+
+class Calculator extends React.Component {
+  render() {
+    return (
+      <div className="calculator">
+        <div className="calculator-input">
+          <CalculatorInput />
         </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
+        <div className="calculator-screen">
+          <CalculatorScreen />
         </div>
       </div>
     );
@@ -58,4 +89,4 @@ class Game extends React.Component {
 
 // ========================================
 
-ReactDOM.render(<Game />, document.getElementById('root'));
+ReactDOM.render(<Calculator />, document.getElementById('root'));

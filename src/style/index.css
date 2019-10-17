@@ -1,51 +1,50 @@
-body {
-  font: 14px 'Century Gothic', Futura, sans-serif;
-  margin: 20px;
+.key {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 60px;
+  margin-right: 2px;
+  margin-top: 2px;
+  padding: 0;
+  text-align: center;
+  width: 60px;
+  border-radius: 8px;
 }
 
-ol,
-ul {
-  padding-left: 30px;
+.special.key {
+  background: rgb(193, 194, 194);
 }
 
-.board-row:after {
+.equals.key {
+  background: rgb(19, 153, 194);
+}
+
+.key:focus {
+  outline: none;
+}
+
+.key:hover {
+  background: rgb(228, 228, 228);
+}
+
+.input-row:after {
   clear: both;
   content: '';
   display: table;
 }
 
-.status {
+.calculator-input {
   margin-bottom: 10px;
 }
 
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
+.calculator-screen {
+  max-width: 248px;
 }
 
-.square:focus {
-  outline: none;
-}
-
-.kbd-navigation .square:focus {
-  background: #ddd;
-}
-
-.game {
-  display: flex;
-  flex-direction: row;
-}
-
-.game-info {
-  margin-left: 20px;
+.outputLine {
+  background: rgb(0, 0, 0);
+  color: #fff;
 }
