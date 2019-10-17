@@ -12,30 +12,36 @@ function Key(props) {
 }
 
 class CalculatorInput extends React.Component {
-  renderKey(i, ...classNames) {
+  renderKey(value, ...classNames) {
     classNames = classNames.concat(['key']);
-    return <Key value={i} classNames={classNames}></Key>;
+    return (
+      <Key
+        value={value}
+        classNames={classNames}
+        onClick={() => this.props.onClick(value)}
+      ></Key>
+    );
   }
 
   render() {
     return (
       <div>
         <div className="input-row">
-          {this.renderKey(7)}
-          {this.renderKey(8)}
-          {this.renderKey(9)}
+          {this.renderKey('7')}
+          {this.renderKey('8')}
+          {this.renderKey('9')}
           {this.renderKey('/', 'special')}
         </div>
         <div className="input-row">
-          {this.renderKey(4)}
-          {this.renderKey(5)}
-          {this.renderKey(6)}
-          {this.renderKey('x', 'special')}
+          {this.renderKey('4')}
+          {this.renderKey('5')}
+          {this.renderKey('6')}
+          {this.renderKey('*', 'special')}
         </div>
         <div className="input-row">
-          {this.renderKey(1)}
-          {this.renderKey(2)}
-          {this.renderKey(3)}
+          {this.renderKey('1')}
+          {this.renderKey('2')}
+          {this.renderKey('3')}
           {this.renderKey('-', 'special')}
         </div>
         <div className="input-row">
@@ -53,34 +59,54 @@ function OutputLine(props) {
   return <div className="outputLine">{props.value}</div>;
 }
 
-class CalculatorScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lines: ['1+1 = 2', '2+1*3 = 5'],
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        {this.state.lines.map(line => (
-          <OutputLine value={line} />
-        ))}
-      </div>
-    );
-  }
+function CalculatorScreen(props) {
+  return (
+    <div>
+      {props.lines.map((line, i) => (
+        <OutputLine key={i} value={line} />
+      ))}
+    </div>
+  );
 }
 
 class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lines: [''],
+    };
+  }
+
+  handleClick(value) {
+    const lines = this.state.lines.slice();
+
+    if (value === '=') {
+      if (this.checkCurrentExpressionIsEvaluable(lines[0])) {
+        lines[0] = `${lines[0]} = ${eval(lines[0])}`;
+      }
+      lines.unshift('');
+    } else {
+      lines[0] += value;
+    }
+    this.setState({ lines: lines.slice(0, 10) });
+  }
+
+  checkCurrentExpressionIsEvaluable(expression) {
+    // Revoir cette regexp qui ne matche jamais !
+    var regex = new RegExp('^([-+/*]d+(.d+)?)+');
+    return regex.test(expression);
+  }
+
   render() {
     return (
       <div className="calculator">
         <div className="calculator-input">
-          <CalculatorInput />
+          <CalculatorInput
+            onClick={classNames => this.handleClick(classNames)}
+          />
         </div>
         <div className="calculator-screen">
-          <CalculatorScreen />
+          <CalculatorScreen lines={this.state.lines} />
         </div>
       </div>
     );

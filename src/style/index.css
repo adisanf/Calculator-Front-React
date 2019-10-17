@@ -42,9 +42,12 @@
 
 .calculator-screen {
   max-width: 248px;
+  min-height: 200px;
+  background: rgb(0, 0, 0);
 }
 
 .outputLine {
   background: rgb(0, 0, 0);
   color: #fff;
+  min-height: 20px;
 }
