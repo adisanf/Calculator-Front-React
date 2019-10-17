@@ -1,0 +1,41 @@
+{
+  "name": "calculatrice",
+  "version": "1.0.0",
+  "description": "Front : React (Hooks) \t\r Back : Node\r -\tCréer un repo Github et nous le rendre accessible\r -\tCreate React App\r -\tCréer une calculatrice classique (+ ; - ; * ; / ; = )\r -\tSous la calculatrice afficher les 10 derniers calculs sans faire appel au back\r -\t1 bouton « sauvegarder » permet de sauvegarder les résultats dans le back\r -\t1 onglet permettant d’accéder à une nouvelle page « historique » qui liste l’ensemble des calculs sauvegardés\r -\tCréer un back Node avec une DB au choix\r -\tRefuser le call si le résultat est impair ou entier \r -\tFaire des tests unitaires Front/Back\r On peut se dire comme timing : accès à Git max mardi 22 au soir ; réunion pour débrief et discussion le 24 avec l’équipe. \r Si le besoin n’est pas clair, prend une hypothèse et avance ; tu expliqueras simplement l’hypothèse que tu as prise. \r On a conscience qu’il y a beaucoup de chose et que tu n’auras pas le temps de tout faire et ce n’est pas grave ; l’essentiel étant dans la démarche et les choix que tu as pu faire.  \r Si besoin ou question : johann.landart@socgen.com  thibault.jacquet@socgen.com adrien.duchemin@socgen.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development",
+    "format": "prettier --write \"src/**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeanLethiec/Calculatrice-React-Node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeanLethiec/Calculatrice-React-Node/issues"
+  },
+  "homepage": "https://github.com/JeanLethiec/Calculatrice-React-Node#readme",
+  "dependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "prettier": "1.18.2",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  }
+}
