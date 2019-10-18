@@ -28,6 +28,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve('./index.html'),
+      extensions: ['.js', '.jsx', '.json'],
+      alias: {
+        service: path.resolve(__dirname, './src/service'),
+      },
     }),
   ],
+  resolve: {
+    modules: [path.resolve(__dirname, './src'), , 'node_modules'],
+  },
 };
