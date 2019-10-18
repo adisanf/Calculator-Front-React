@@ -81,6 +81,9 @@ class Calculator extends React.Component {
     const lines = this.state.lines.slice();
 
     if (value === '=') {
+      if (lines[0] === '') {
+        return;
+      }
       if (this.checkCurrentExpressionIsEvaluable(lines[0])) {
         lines[0] = `${lines[0]} = ${eval(lines[0])}`;
       } else {
