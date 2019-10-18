@@ -53,9 +53,9 @@ class Calculator extends React.Component {
         <div className="calculator-screen">
           <CalculatorScreen lines={this.state.lines} />
         </div>
-        <button className="save" onClick={this.save}>
+        <div className="button save" onClick={this.save}>
           Save
-        </button>
+        </div>
       </div>
     );
   }
