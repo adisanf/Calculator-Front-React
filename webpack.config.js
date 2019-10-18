@@ -31,6 +31,7 @@ module.exports = {
       extensions: ['.js', '.jsx', '.json'],
       alias: {
         service: path.resolve(__dirname, './src/service'),
+        style: path.resolve(__dirname, './src/style'),
       },
     }),
   ],
