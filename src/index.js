@@ -83,6 +83,8 @@ class Calculator extends React.Component {
     if (value === '=') {
       if (this.checkCurrentExpressionIsEvaluable(lines[0])) {
         lines[0] = `${lines[0]} = ${eval(lines[0])}`;
+      } else {
+        lines[0] = `${lines[0]} = ERROR`;
       }
       lines.unshift('');
     } else {
@@ -92,9 +94,12 @@ class Calculator extends React.Component {
   }
 
   checkCurrentExpressionIsEvaluable(expression) {
-    // Revoir cette regexp qui ne matche jamais !
-    var regex = new RegExp('^([-+/*]d+(.d+)?)+');
-    return regex.test(expression);
+    try {
+      eval(expression);
+      return true;
+    } catch (error) {
+      return false;
+    }
   }
 
   render() {
