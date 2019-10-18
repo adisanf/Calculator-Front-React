@@ -13,4 +13,4 @@ Back : Node
   On peut se dire comme timing : accès à Git max mardi 22 au soir ; réunion pour débrief et discussion le 24 avec l’équipe.
   Si le besoin n’est pas clair, prend une hypothèse et avance ; tu expliqueras simplement l’hypothèse que tu as prise.
   On a conscience qu’il y a beaucoup de chose et que tu n’auras pas le temps de tout faire et ce n’est pas grave ; l’essentiel étant dans la démarche et les choix que tu as pu faire.  
-  Si besoin ou question : johann.landart@socgen.com thibault.jacquet@socgen.com adrien.duchemin@socgen.com
+  Si besoin ou question : ...................................................................................................
