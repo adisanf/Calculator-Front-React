@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
 import { CalculatorService } from 'service/CalculatorService';
+import { Screen } from './Screen';
 
 class Calculator extends React.Component {
   constructor(props) {
@@ -51,7 +51,7 @@ class Calculator extends React.Component {
           />
         </div>
         <div className="calculator-screen">
-          <CalculatorScreen lines={this.state.lines} />
+          <Screen lines={this.state.lines} />
         </div>
         <div className="button save" onClick={this.save}>
           Save
@@ -111,20 +111,6 @@ class CalculatorInput extends React.Component {
       </div>
     );
   }
-}
-
-function OutputLine(props) {
-  return <div className="outputLine">{props.value}</div>;
-}
-
-function CalculatorScreen(props) {
-  return (
-    <div>
-      {props.lines.map((line, i) => (
-        <OutputLine key={i} value={line} />
-      ))}
-    </div>
-  );
 }
 
 export { Calculator };
